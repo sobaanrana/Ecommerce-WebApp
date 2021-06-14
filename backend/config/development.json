@@ -1,0 +1,4 @@
+{
+    "db": "mongodb://localhost/ecommerceDB",
+    "host" : "4000"
+}
