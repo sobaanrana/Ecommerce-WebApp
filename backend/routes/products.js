@@ -1,11 +1,12 @@
 var express = require('express');
 var router = express.Router();
-var Product = require('../models/product')
+var Product = require('../models/product');
 const APIFeatures = require('../API-Features/apiFeatures');
+const auth = require('../middlewares/auth');
 
 
 //Creating New Product
-router.post('/admin/new', async (req, res) => {
+router.post('/new', auth, async (req, res) => {
     //let product = new Product();
 
     let product = await Product.create(req.body);
@@ -25,8 +26,9 @@ router.post('/admin/new', async (req, res) => {
 })
 
 //Getting all the products
-router.get('/', async (req, res, next) => {
+router.get('/' , async (req, res, next) => {
 
+    console.log(req.user);
     const resPerPage = 4; //4 results per page
     const productsCount = await Product.countDocuments(); //for implementing pagination on the frontend, need to give total number of products in the database
     
@@ -43,6 +45,7 @@ router.get('/', async (req, res, next) => {
             success: true,
             //count: products.length,
             productsCount,
+            resPerPage,
             products
                 
         })
@@ -73,7 +76,7 @@ router.get('/:id', async (req, res, next) => {
 })
 
 //Updating a Product
-router.put('/admin/:id', async (req, res, next) => {
+router.put('/update/:id', auth, async (req, res, next) => {
     if (req.params.id.length!=24) {
         return res.status(404).json({
             success: false,
@@ -103,7 +106,7 @@ router.put('/admin/:id', async (req, res, next) => {
   })
 
 //Deleting product =>
-router.delete('/admin/:id', async (req, res, next) => {
+router.delete('/delete/:id', auth, async (req, res, next) => {
     if (req.params.id.length!=24) {
         return res.status(404).json({
             success: false,
