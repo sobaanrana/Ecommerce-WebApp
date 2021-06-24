@@ -10,11 +10,21 @@ import {
     CLEAR_ERRORS
 } from '../constants/productConstants'
 
-export const getProducts = () => async (dispatch) => {
+export const getProducts = (keyword= '', pageNo = 1, price, category, rating=0) => async (dispatch) => {
     try {
         dispatch({type: ALL_PRODUCTS_REQUEST}) //when it is dispatched it set loading true and products to empty array in the state
 
-        const { data } = await axios.get('/products') //Get request
+        let link = ''
+        if(category) {
+             link = `/products?page=${pageNo}&keyword=${keyword}&price[lte]=${price[1]}&price[gte]=${price[0]}&category=${category}&rating[gte]=${rating}`
+        }
+        else
+        {
+             link = `/products?page=${pageNo}&keyword=${keyword}&price[lte]=${price[1]}&price[gte]=${price[0]}&rating[gte]=${rating}` //price is an array
+        }
+        const { data } = await axios.get(link) //Get request
+
+        
 
         dispatch({
             type: ALL_PRODUCTS_SUCCESS,
