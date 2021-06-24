@@ -19,7 +19,7 @@ const productSchema = new mongoose.Schema({
     },
     rating : {
         type: Number,
-        default: 0,
+        default: 0.0
     },
     images: [ //since adding multiple images taking array
         { //cloudinary is used for images and it gives in response image id (public_id) and image url 
@@ -34,7 +34,7 @@ const productSchema = new mongoose.Schema({
         }
 
     ],
-    category: {
+    category: { //can only input category of product in list else validation error
         type: String,
         required: [true, 'Please select category for this product'],
         enum: {//enums checks if the value is given in an array of strings
@@ -43,14 +43,23 @@ const productSchema = new mongoose.Schema({
                 'Acessories',
                 'Mobiles',
                 'Headphones',
+                'Cameras',
                 'Electronics',
+                'Cables',
+                'Speakers',
                 'Food',
                 'Books',
                 'Clothes',
+                'Shirts',
+                'Pants',
                 'Shoes',
+                'Watches',
                 'Sports',
                 'Outdoor',
                 'Home',
+                'Furniture',
+                'Chairs',
+                'Batteries',    
                 'Beauty/Health'
             ],
             message: 'Please select correct category for product' //displayed when correct category not selected
