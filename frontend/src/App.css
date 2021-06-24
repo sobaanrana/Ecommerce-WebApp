@@ -119,10 +119,12 @@ nav {
 
 /* Footer */
 footer {
-  margin-top: 8rem;
+  margin-top: 11rem;
   color: grey;
   bottom: 0;
   width: 100%;
+  margin-left: 500px;
+  margin-bottom: 5px;
 }
 
 /* Ratings */
@@ -617,4 +619,74 @@ ul.CTAs a {
 .review_user {
   font-size: 0.8rem;
   color: grey;
+}
+
+
+
+/*-----------Footer---------*/
+
+
+.footer {
+    
+  height: 350px;
+  padding-top: 40px;
+  background-color: #232f3e;
+  
+}
+
+.socials li{
+  display: inline-block;
+  list-style: none;
+  padding-right: 15px;
+  font-size: 15px;
+  border-radius: 50%;
+  border-radius: 1px solid white;
+  
+}
+
+.socials li i{
+  border-radius: 50%;
+  border-radius: 1px solid white;
+}
+.socials {
+  padding-left: 0px;
+}
+
+.footer .socials i{
+  border: 1px solid white;
+  text-align: center;
+  padding: 10px;
+}
+
+.submitbutton{
+  /*margin-top: 10px !important;*/
+  font-size: bold;
+  background-color: tomato;
+
+  
+}
+
+.submitbutton:hover{
+  color: whitesmoke;
+  background-color: tomato;
+}
+
+
+.footer h2{
+  font-weight: bold; 
+
+  padding-top: 0px;
+}
+
+.contactus{
+  padding: 0px ;
+  padding-left: 110px;
+}
+
+.address{
+  padding-left:70px;
+}
+
+.footer div{
+  height: 100px;
 }
