@@ -1,4 +1,8 @@
 {
     "db": "mongodb://localhost/ecommerceDB",
-    "host" : "4000"
+    "host" : "4000",
+    "jwtPrivateKey" : "SomePrivateKey",
+    "cloudinary_cloud_name" : "rms0",
+    "cloudinary_api_key" : "491777176627589",
+    "cloudinary_api_secret" : "B49cTGsHA8LA_7rrTci70-5VaN4"
 }
