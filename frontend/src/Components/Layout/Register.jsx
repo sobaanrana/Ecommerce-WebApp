@@ -57,7 +57,7 @@ const Register = ({ history }) => {
 
     /*
     const onChange = e => {
-        if (e.target.name === 'dp') {
+        if (e.target.name === 'dp') { //setting profile picture
 
             const reader = new FileReader();
 
