@@ -6,7 +6,7 @@ export const cartReducer = (state = {cartItems : []} , action) => { //cartItems 
         
         case ADD_TO_CART:
             const item = action.payload;
-            const isItemExist = state.cartItems.find(i => i.product === item.product) //ids of project are checked
+            const isItemExist = state.cartItems.find(i => i.product === item.product) //ids of product are checked
 
             if(isItemExist) {
                 return {
@@ -19,7 +19,7 @@ export const cartReducer = (state = {cartItems : []} , action) => { //cartItems 
             } else {
                 return{
                     ...state,
-                    cartItems: [...state.cartItems, item] //from whatever in array of cart items, take item
+                    cartItems: [...state.cartItems, item] //from whatever in array of cart items set item
 
                 }
               
