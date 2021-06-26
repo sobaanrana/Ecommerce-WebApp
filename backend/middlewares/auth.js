@@ -9,8 +9,7 @@ async function auth(req, res, next) {
     if(!token) return res.status(400).send("Token Not Provided") 
    try {
     let user = jwt.verify(token, config.get("jwtPrivateKey")); 
-    //req.user = user; //sending user information as while generating token we placed name so we are embeding in req so we dont need to fetch user separately
-    req.user = await User.findById(user._id); //we are embedding complete user object here
+    req.user = await User.findById(user._id); 
     } catch (error) {
        return res.status(401).send("Invalid Token")
    }
