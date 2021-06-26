@@ -583,6 +583,10 @@ ul.CTAs a {
   font-size: 1.5rem;
 }
 
+.btn-dash {
+  margin: 7px;
+}
+
 /* Reviews */
 
 .rating {
@@ -643,19 +647,28 @@ ul.CTAs a {
   border-radius: 1px solid white;
   
 }
+.socials {
+  margin-left: 40px;
+
+}
 
 .socials li i{
   border-radius: 50%;
   border-radius: 1px solid white;
 }
-.socials {
-  padding-left: 0px;
+.socialsh2 {
+  margin-left: 80px;
+  padding-top: 30px
 }
 
 .footer .socials i{
   border: 1px solid white;
   text-align: center;
   padding: 10px;
+}
+
+.aboutus {
+  padding-top: 30px
 }
 
 .submitbutton{
@@ -674,13 +687,11 @@ ul.CTAs a {
 
 .footer h2{
   font-weight: bold; 
-
-  padding-top: 0px;
 }
 
 .contactus{
   padding: 0px ;
-  padding-left: 110px;
+  padding-left: 0px;
 }
 
 .address{
