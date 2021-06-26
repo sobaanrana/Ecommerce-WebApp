@@ -39,7 +39,7 @@ router.post('/register',validateSignup, async (req, res) => {
   
   let user = await User.create(req.body)
 
-  await user.generateHashedPassword(); //user is object and we are calling a method on it to generate hash password
+  await user.generateHashedPassword(); //calling a method on it to generate hash password
 
   await user.save();
 
@@ -54,7 +54,7 @@ router.post('/login', validateLogin, async (req, res) => {
   if(!user) {
     return res.status(400).send("User Not Recognized");
   }
-  let token = jwt.sign({_id: user._id, name: user.name}, config.get("jwtPrivateKey"))//sign user properties as they can be regenerated with this token and sign private key to this token //here config is used as hacker can acces our private key
+  let token = jwt.sign({_id: user._id, name: user.name}, config.get("jwtPrivateKey"))
 
   if(bcrypt.compare(req.body.password,user.password)) {
     return res.status(200).json({
