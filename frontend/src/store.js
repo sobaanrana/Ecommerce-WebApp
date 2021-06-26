@@ -2,7 +2,7 @@ import { createStore, combineReducers, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk'; //middleware allows you to write action creators that return a function instead of an action.
 import { composeWithDevTools } from 'redux-devtools-extension'
 import { productDetailsReducer, productsReducer } from './reducers/productReducers'
-import { userReducer } from './reducers/userReducers';
+import { contactUsReducer, userReducer } from './reducers/userReducers';
 import { cartReducer } from './reducers/cartReducers';
 
 const reducer = combineReducers({
@@ -11,10 +11,16 @@ const reducer = combineReducers({
     productDetails: productDetailsReducer,
     loggedInUser : userReducer,
     //loadUser : userReducer,
+    contactUs : contactUsReducer,
     cart : cartReducer
 })
 
-let initialState = {} //contains all the data we want to put in the state just before loading the applicaiton
+let initialState = {
+    cart: {
+        cartItems: localStorage.getItem('cartItems') ? JSON.parse(localStorage.getItem('cartItems'))  //converting into JSON
+                                                    : []
+    }
+} //contains all the data we want to put in the state just before loading the applicaiton
 
 //Now create store
 
