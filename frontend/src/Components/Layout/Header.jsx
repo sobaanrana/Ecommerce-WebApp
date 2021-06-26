@@ -13,11 +13,6 @@ const Header = () => {
     const {loading, loggedIn, error,user} = useSelector(state => state.loggedInUser);
     const {cartItems} =useSelector(state => state.cart);
 
-    /*const [log, setLog] = useState(false)
-    useEffect(()=>{
-        loggedIn = log;
-        
-    },loggedIn)*/
     useEffect(() => {
        
         /*if (!loggedIn) {
