@@ -16,7 +16,7 @@ const ProductDetails = ({match}) => {
 
     const [count, setCount] = useState(1);
 
-    const {loading, product, error} =  useSelector(state => state.productDetails) //laoding these constants from productDetails
+    const {loading, product, error} =  useSelector(state => state.productDetails) //getting these constants from productDetails
 
 
     useEffect(()=>{
