@@ -11,7 +11,10 @@ import {
     LOAD_USER_FAIL,
     LOGOUT_USER_FAIL,
     LOGOUT_USER_REQUEST,
-    LOGOUT_USER_SUCCESS
+    LOGOUT_USER_SUCCESS,
+    MESSAGE_SUCCESS,
+    MESSAGE_FAIL,
+    MESSAGE_REQUEST
 } from '../constants/userConstants'
 
 export const userReducer = (state = { user: {}}, action) => {
@@ -68,5 +71,39 @@ export const userReducer = (state = { user: {}}, action) => {
         default:
             return state
 
+    }
+}
+
+export const contactUsReducer = (state = { user: {}}, action) => {
+    switch(action.type) {
+        case MESSAGE_REQUEST:
+            return{
+                messageSent: false
+            }
+        case MESSAGE_SUCCESS:
+            return {
+                messageSent: false,
+                user: action.payload
+
+
+            }
+        case MESSAGE_FAIL:
+            return {
+                messageSent: false,
+                error: action.payload
+
+    
+            }
+
+        case CLEAR_ERRORS:
+            return{
+                //...state,
+                error: null
+            }
+        
+
+        default:
+            return state
+    
     }
 }
