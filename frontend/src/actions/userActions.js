@@ -12,7 +12,10 @@ import {
     CLEAR_ERRORS,
     LOGOUT_USER_SUCCESS,
     LOGOUT_USER_REQUEST,
-    LOGOUT_USER_FAIL
+    LOGOUT_USER_FAIL,
+    MESSAGE_REQUEST,
+    MESSAGE_SUCCESS,
+    MESSAGE_FAIL
 } from '../constants/userConstants'
 
 export const login = (email, password) => async (dispatch) => {
@@ -76,6 +79,25 @@ export const register = (name, email, password) => async (dispatch) => {
     } catch (error) {
         dispatch({
             type: REGISTER_USER_FAIL,
+            payload: error.reponse.data.message
+        })
+        
+    }
+}
+
+export const contactUs = (email, message) => async (dispatch) => {
+    try {
+        dispatch({type: MESSAGE_REQUEST})
+
+        const {data} = await axios.post('contact/message', {email,message});
+        dispatch({
+            type: MESSAGE_SUCCESS,
+            payload: data.detail //
+        })
+
+    } catch (error) {
+        dispatch({
+            type: MESSAGE_FAIL,
             payload: error.reponse.data.message
         })
         
