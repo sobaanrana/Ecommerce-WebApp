@@ -10,9 +10,8 @@ import { useAlert } from 'react-alert';
 const Header = () => {
     const dispatch = useDispatch();
     const alert = useAlert();
-    const {loading, loggedIn, error} = useSelector(state => state.loggedInUser);
-
-
+    const {loading, loggedIn, error,user} = useSelector(state => state.loggedInUser);
+    const {cartItems} =useSelector(state => state.cart);
 
     /*const [log, setLog] = useState(false)
     useEffect(()=>{
@@ -41,7 +40,7 @@ const Header = () => {
                 <nav className="navbar row">
                     <div className="col-12 col-md-3">
                         <div className="navbar-brand">
-                            <img src="/images/logo.png" />
+                           <Link to="/"> <img src="/images/logo.png" /></Link>
                         </div>
                     </div>
 
@@ -50,10 +49,20 @@ const Header = () => {
                     </div>
 
                     <div className="col-12 col-md-3 mt-4 mt-md-0 text-center">
-                        <Link to="/user/login"><button className="btn" id="login_btn" onClick={logOut}>LogOut</button></Link>
-
-                        <span id="cart" className="ml-3">Cart</span>
-                        <span className="ml-1" id="cart_count">2</span>
+                        {user.role == 'admin' ? 
+                            <Fragment>
+                                <Link to="/admin/dashboard"><button className="btn btn-dash" id="login_btn" onClick={logOut}>Dashboard</button></Link>
+                                <Link to="/user/login"><button className="btn" id="login_btn" onClick={logOut}>LogOut {user.name}</button></Link>
+                            </Fragment>
+                        : (
+                            <Fragment>
+                                <Link to="/user/login"><button className="btn" id="login_btn" onClick={logOut}>LogOut {user.name}</button></Link>
+                                <Link to="/cart"><buttton id="cart" className="ml-3">Cart</buttton></Link>
+                                <Link className="ml-1" id="cart_count">{cartItems.length}</Link>
+                            </Fragment>
+                            
+                        )}
+                        
                     </div>
                 </nav>
 
@@ -78,8 +87,8 @@ const Header = () => {
                        
 
 
-                        <span id="cart" className="ml-3">Cart</span>
-                        <span className="ml-1" id="cart_count">2</span>
+                        <Link to="/cart"><buttton id="cart" className="btn btn-cart ml-3">Cart</buttton></Link>
+                        <span className="ml-1" id="cart_count">{cartItems.length}</span>
                     </div>
                 </nav>
 
