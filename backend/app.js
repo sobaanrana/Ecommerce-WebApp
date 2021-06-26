@@ -8,7 +8,7 @@ var logger = require('morgan');
 var usersRouter = require('./routes/users');
 var productsRouter = require('./routes/products');
 var ordersRouter = require('./routes/orders');
-
+var contactRouter = require('./routes/contactus')
 
 var mongoose = require('mongoose');
 var config = require('config');
@@ -32,6 +32,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/user', usersRouter);
 app.use('/products', productsRouter);
 app.use('/orders', ordersRouter);
+app.use('/contact',contactRouter);
 
 //Setting up cloudinary configuration
 cloudinary.config({
