@@ -51,14 +51,14 @@ export const productDetailsReducer = (state = {product : {}}, action) => { //pro
 
         case PRODUCT_DETAILS_SUCCESS:
             return {
-                ...state, //spreading state
-                loading: false,//products fetched from backend
+                ...state, 
+                loading: false,//products fetched from database
                 product: action.payload
             }
             
         case PRODUCT_DETAILS_FAIL:
             return {
-                ...state, //spreading state
+                ...state, 
                 loading: true,
                 //error: action.payload
                 error: null
@@ -66,7 +66,7 @@ export const productDetailsReducer = (state = {product : {}}, action) => { //pro
 
         case CLEAR_ERRORS:
             return {
-                ...state, // whatver in state
+                ...state, 
                 error: null
             }
             
