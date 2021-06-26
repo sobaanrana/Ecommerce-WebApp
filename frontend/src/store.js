@@ -6,7 +6,7 @@ import { contactUsReducer, userReducer } from './reducers/userReducers';
 import { cartReducer } from './reducers/cartReducers';
 
 const reducer = combineReducers({
-    //we have reducers for every resource like product, users reducer. So we will add all the reducers in this combined rducer function
+    //we have reducers for every resource like product, users reducer. So we will add all the reducers in this combined reducer function
     products: productsReducer,
     productDetails: productDetailsReducer,
     loggedInUser : userReducer,
@@ -20,7 +20,7 @@ let initialState = {
         cartItems: localStorage.getItem('cartItems') ? JSON.parse(localStorage.getItem('cartItems'))  //converting into JSON
                                                     : []
     }
-} //contains all the data we want to put in the state just before loading the applicaiton
+} //contains all the data we want to put in the state just before loading the application
 
 //Now create store
 
