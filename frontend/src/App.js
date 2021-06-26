@@ -10,6 +10,9 @@ import Register from './Components/Layout/Register';
 import { loadUser} from './actions/userActions';
 import { useEffect } from 'react';
 import store from './store';
+import ForgotPassword from './Components/ForgotPassword';
+import Dashboard from './Components/Admin/Dashboard';
+import Cart from './Components/cart';
 
 function App() {
 
@@ -27,6 +30,11 @@ function App() {
           <Route path='/product/:id' component={ProductDetails} exact></Route>
           <Route path='/user/login' component={Login} exact></Route>
           <Route path='/user/register' component={Register} exact></Route>
+          <Route path='/password/forgot' component={ForgotPassword} exact></Route>
+          <Route path='/admin/dashboard' component={Dashboard} exact></Route>
+          <Route path='/cart' component={Cart} exact></Route>
+
+
           
         </div>
         <Footer />
