@@ -7,6 +7,7 @@ import MetaData from './MetaData'
 import {useAlert} from 'react-alert';
 import { Carousel} from 'react-bootstrap';
 import FormChange from '../Admin/FormChange';
+import { addItemToCart } from '../../actions/cartActions';
 
 const ProductDetails = ({match}) => {
 
@@ -48,6 +49,11 @@ const ProductDetails = ({match}) => {
         if(count <= 1) return;
         
     }
+
+    const addToCart = () => {
+        dispatch(addItemToCart(match.params.id, count));
+        alert.success('Item Added to Cart')
+    }
     return (
         <Fragment>
             {loading ? <Loader /> : (
@@ -86,7 +92,7 @@ const ProductDetails = ({match}) => {
 
                         <span className="btn btn-primary plus"  onClick={incCount}>+</span>
                     </div>
-                    <button type="button" id="cart_btn" className="btn btn-primary d-inline ml-4">Add to Cart</button>
+                    <button type="button" id="cart_btn" className="btn btn-primary d-inline ml-4" disabled={product.stock === 0} onClick={addToCart}>Add to Cart</button>
 
                     <hr/>
 

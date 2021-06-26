@@ -14,12 +14,11 @@ const Login = ({history}) => {
     const dispatch = useDispatch();
     const alert = useAlert();
 
-    const {loading, loggedIn, error, user} = useSelector(state => state.loggedInUser);
+    const {loading, loggedIn, error} = useSelector(state => state.loggedInUser);
 
     useEffect(() => {
         if(loggedIn) { //if user already logged in then dont allow to go to login page again
             history.push('/')
-            alert.show(user._id)
         }
         else if (!loggedIn) {
             history.push('/user/login')
